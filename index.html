@@ -16,8 +16,46 @@
                     </label>
                 </div>
             </div>
-            <input type="number" id="input-value" value="10" aria-label="Value to convert"/>
+            <input type="number" id="input-value" value="1" aria-label="Value to convert"/>
         </header>
+
+        <!-- Result display section -->
+        <section class="results-section">
+            <div class="result-card" id="length-card">
+                <div class="card-header">
+                    <h2 id="length-title"></h2>
+                    <button class="icon-btn swap-btn" data-type="length" aria-label="Swap Length Units">
+                        <svg viewBox="0 0 24 24"><path d="M6.99 11L3 15l3.99 4v-3H14v-2H6.99v-3zM21 9l-3.99-4v3H10v2h7.01v3L21 9z"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="result-content"></div>
+            </div>
+            
+            <div class="result-card" id="volume-card">
+                <div class="card-header">
+                    <h2 id="volume-title"></h2>
+                    <button class="icon-btn swap-btn" data-type="volume" aria-label="Swap volume units">
+                        <svg viewBox="0 0 24 24"><path d="M6.99 11L3 15l3.99 4v-3H14v-2H6.99v-3zM21 9l-3.99-4v3H10v2h7.01v3L21 9z"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="result-content"></div>
+            </div>
+
+            <div class="result-card" id="mass-card">
+                <div class="card-header">
+                    <h2 id="mass-title"></h2>
+                    <button class="icon-btn swap-btn" data-type="mass" aria-label="Swap mass units">
+                        <svg viewBox="0 0 24 24"><path d="M6.99 11L3 15l3.99 4v-3H14v-2H6.99v-3zM21 9l-3.99-4v3H10v2h7.01v3L21 9z"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="result-content"></div>
+            </div>
+        </section>
     </main>
+
+    <script src="script.js"></script>
 </body>
 </html>
