@@ -1,0 +1,30 @@
+/* CSS variables for theme colors */
+
+:root {
+    --bg-dark: #121212;
+    --bg-light: #F4F4F4;
+
+    --text-dark: #FFFFFF;
+    --text-light: #1F2937;
+
+    --header-bg: #6943FF;
+
+    --card-bg-dark: #1e1e1e;
+    --card-bg-light: #FFFFFF;
+
+    --text-secondary-dark: #D1D5DB;
+    --text-secondary-light: #4B5563;
+
+    --accent-dark: #CCC1FF;
+    --accent-light: #5A55E0;
+
+    --border-dark: #B295FF;
+    --border-light: #D1D5DB;
+
+    --icon-fill-dark: #A5B4FC;
+    --icon-fill-light: #4F46E5;
+
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+    -o-transition-speed: 0.3s;
+}
+
