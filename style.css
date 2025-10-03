@@ -28,3 +28,40 @@
     -o-transition-speed: 0.3s;
 }
 
+body {
+    font-family: 'Roboto Mono', monospace;
+    margin: 0;
+    padding: 1.25rem;
+    box-sizing:border-box;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+/* theme styles */
+
+body.light-mode {
+    --bg: var(--bg-light);
+    --text: var(--text-light);
+    --card-bg: var(--card-bg-light);
+    --text-secondary: var(--text-secondary-light);
+    --accent: var(--accent-light);
+    --border: var(--border-light);
+    --icon-fill: var(--icon-fill-light);
+}
+
+body.dark-mode {
+    --bg: var(--bg-dark);
+    --text: var(--text-dark);
+    --card-bg: var(--card-bg-dark);
+    --text-secondary: var(--text-secondary-dark);
+    --accent: var(--accent-dark);
+    --border: var(--border-dark);
+    --icon-fill: var(--icon-fill-dark);
+}
+
+
