@@ -24,7 +24,7 @@
     --icon-fill-dark: #A5B4FC;
     --icon-fill-light: #4F46E5;
 
-    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+    --shadow: 0 4px 6px 1px rgba(252, 253, 255, 0.5);
     -o-transition-speed: 0.3s;
 }
 
@@ -39,7 +39,7 @@ body {
     min-height: 100vh;
     background-color: var(--bg-dark);
     color: var(--text-dark);
-    transition: background-color var(--transition-speed), color var(--transition-speed);
+    transition: background-color var(--transition-speed);color: var(--transition-speed);
 }
 
 /* theme styles */
@@ -64,4 +64,214 @@ body.dark-mode {
     --icon-fill: var(--icon-fill-dark);
 }
 
+/* main container */
+.container {
+    max-width: 34.375rem;
+    width: 100%;
+}
 
+.header-section {
+    background-color: var(--header-bg);
+    color: var(--text-dark);
+    padding: 1.5625rem;
+    text-align: center;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: var(--shadow);
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+    width: 100%;
+}
+
+.header-section h1 {
+    margin: 0;
+    font-weight: 800;
+    font-size: 1.625rem;
+    /* letter-spacing: -0.03125rem; */
+    flex-grow: 1;
+    text-align: center;
+}
+
+#input-value {
+    width: 11.25rem;
+    height: 5.3125rem;
+    font-size: 3.625rem;
+    font-weight: 800;
+    text-align: center;
+    border: 0.125rem solid var(--border-dark);
+    border-radius: 0.3125rem;
+    background-color: transparent;
+    color: var(--text-dark);
+    outline: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#input-value:focus {
+    transform: scale(1.02);
+    box-shadow: 0 0 0.9375rem rgba(255, 255, 255, 0.3);
+} 
+
+#input-value::-webkit-outer-spin-button,
+#input-value::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* theme toggle button */
+
+.theme-switch-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.theme-switch {
+    display: inline-block;
+    height: 1.5rem;
+    position: relative;
+    width: 2.75rem;
+}
+
+.theme-switch input {
+    display: none;
+}
+
+.slider {
+    background-color: #4A4A4A;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: 0.4s;
+    border-radius: 1.5rem;
+}
+
+.slider::before {
+    position: absolute;
+    content: "";
+    height: 1.125rem;
+    width: 1.125rem;
+    background-color: #fff;
+    border-radius: 50%;
+    bottom: 0.1875rem;
+    left: 0.1875rem;
+    width: 1.125rem;
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background-color: #B295FF;
+}
+
+input:checked + .slider::before {
+    transform: translateX(1.125rem);
+} 
+
+/* result section */
+
+.results-section {
+    display: grid;
+    gap: 1.25rem;
+}
+
+.result-card {
+    background-color: var(--card-bg-dark);
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow);
+    transition: background-color var(--transition-speed), transform 0.2 ease;
+}
+
+.result-card:hover {
+    transform: translateY(-0.25rem);
+}
+
+card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.9375rem;
+}
+
+.card-header h2 {
+    color: var(--accent-dark);
+    font-size: 1.25rem;
+    margin: 0;
+    font-weight: 600;
+    transition: color var(--transition-speed);
+}
+
+.result-text {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    transition: color var(--transition-speed);
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1;}
+}
+
+.result-line {
+
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.3125rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+    position: relative;
+    border-radius: 50%;
+}
+
+.icon-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+body.light-mode .icon-btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.icon-btn svg {
+    width: 1.125rem;
+    height: 1.125rem;
+    fill: var(--icon-fill-dark);
+    transition: fill var(--transition-speed);
+}
+
+.tooltip {
+
+}
+
+.icon-btn .tooltip {
+
+}
+
+@media (max-width: 480px) {
+    .header-section h1 {
+        font-size: 1.25rem;
+    }
+
+    .header-top {
+        flex-direction: column;
+        gap: 0.7rem;
+    }
+
+    #input-value {
+        font-size: 3rem;
+        height: 3.6875rem;
+    }
+}
