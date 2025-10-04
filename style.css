@@ -24,8 +24,8 @@
     --icon-fill-dark: #A5B4FC;
     --icon-fill-light: #4F46E5;
 
-    --shadow: 0 4px 6px 1px rgba(252, 253, 255, 0.5);
-    -o-transition-speed: 0.3s;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s;
 }
 
 body {
@@ -37,8 +37,8 @@ body {
     justify-content: center;
     align-items: flex-start;
     min-height: 100vh;
-    background-color: var(--bg-dark);
-    color: var(--text-dark);
+    background-color: var(--bg, var(--bg-dark));
+    color: var(--text, var(--text-dark));
     transition: background-color var(--transition-speed);color: var(--transition-speed);
 }
 
@@ -66,7 +66,7 @@ body.dark-mode {
 
 /* main container */
 .container {
-    max-width: 34.375rem;
+    max-width: 550px;
     width: 100%;
 }
 
@@ -78,6 +78,10 @@ body.dark-mode {
     border-radius: 8px;
     position: relative;
     box-shadow: var(--shadow);
+    margin-bottom: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .header-top {
@@ -181,7 +185,7 @@ input:checked + .slider::before {
 }
 
 .result-card {
-    background-color: var(--card-bg-dark);
+    background-color: var(--card-bg, var(--card-bg-dark));
     padding: 1.25rem;
     border-radius: 0.5rem;
     box-shadow: var(--shadow);
@@ -192,7 +196,7 @@ input:checked + .slider::before {
     transform: translateY(-0.25rem);
 }
 
-card-header {
+.card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -200,7 +204,7 @@ card-header {
 }
 
 .card-header h2 {
-    color: var(--accent-dark);
+    color: var(--accent, var(--accent-dark));
     font-size: 1.25rem;
     margin: 0;
     font-weight: 600;
@@ -208,8 +212,8 @@ card-header {
 }
 
 .result-text {
-    color: var(--text-secondary);
-    font-size: 0.875rem;
+    color: var(--text-secondary, var(--text-secondary-dark));
+    font-size: 0.9rem;
     line-height: 1.6;
     transition: color var(--transition-speed);
     opacity: 0;
@@ -221,7 +225,14 @@ card-header {
 }
 
 .result-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;;
+}
 
+.result-line:last-child {
+    margin-bottom: 0;
 }
 
 .icon-btn {
@@ -253,11 +264,25 @@ body.light-mode .icon-btn:hover {
 }
 
 .tooltip {
-
+    position: absolute;
+    background-color: #28a745;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: opacity 0.3s, bottom 0.3s;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0;
 }
 
-.icon-btn .tooltip {
-
+.icon-btn.active .tooltip {
+    opacity: 1;
+    /* visibility: visible; */
+    bottom: 130%;
 }
 
 @media (max-width: 480px) {
